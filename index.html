@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>calcula binomenal</title>
+  <style>
+    input{
+        margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>calcula binomenal</h1>
+
+  <form>
+    <label for="p">p:</label>
+    <input type="number" id="p" name="p"><br>
+
+    <label for="n">n:</label>
+    <input type="number" id="n" name="n"><br>
+
+    <label for="x">x:</label>
+    <input type="number" id="x" name="x"><br>
+
+    <button type="button" onclick="db()">Calcular</button>
+  </form>
+
+  <h1 id="resultado"></h1>
+
+  <script>
+    function fat(n){
+    if(n===0){
+        return 1
+    }
+    return n*fat(n-1)
+    }
+
+    function db(){
+        let p = parseFloat(document.getElementById("p").value);
+        let n = parseFloat(document.getElementById("n").value);
+        let x = parseFloat(document.getElementById("x").value);
+        document.getElementById("resultado").innerText = "Resultado: "+ ((fat(n))/(fat(x)*fat(n-x)))*((Math.pow(p,x))*(Math.pow((1-p),n-x)))
+    }
+  </script>
+</body>
+</html>
